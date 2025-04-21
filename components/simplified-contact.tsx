@@ -52,7 +52,7 @@ export function SimplifiedContact() {
     <section id="contact" className="py-16">
       <h2 className="text-3xl font-bold mb-8">Contato</h2>
       <div className="grid gap-8 md:grid-cols-2">
-        <Card>
+       {/* <Card>
           <CardHeader>
             <CardTitle>Envie uma mensagem</CardTitle>
             <CardDescription>Preencha o formulário e entrarei em contato o mais breve possível.</CardDescription>
@@ -106,7 +106,7 @@ export function SimplifiedContact() {
             </Form>
           </CardContent>
         </Card>
-
+*/}
         <Card>
           <CardHeader>
             <CardTitle>Informações de Contato</CardTitle>

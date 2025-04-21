@@ -214,8 +214,8 @@ export const detailedProjects: DetailedProject[] = [
     responsibilities: [
       "Planejei e implementei frontend em Next.js + Tailwind, com telas de login, dashboard e gestão de dispositivos.",
       "Desenvolvi API de usuários e permissões em NestJS + Prisma, com hierarquia de papéis e validações de acesso.",
-      "Implementei API de aeródromos em NestJS + TypeORM; cadastrei pistas, geolocalização e status de dispositivos em tempo real.",
-      "Configurei API Gateway para roteamento dinâmico e segurança (JWT), e orquestrei deploy com Docker + GitHub Actions.",
+      "Continuei a construção de API para aeródromos em NestJS + TypeORM; cadastrei aerodromos, geolocalização, status de dispositivos e agendamentos em tempo real.",
+      "Colaborei na implementação de um API Gateway para roteamento dinâmico e segurança (JWT), orquestração de deploy com Docker + GitHub Actions.",
     ],
     technologies: ["React", "Next.js", "Tailwind CSS", "NestJS", "PrismaORM", "TypeORM", "Docker", "GitHub Actions"],
     skills: [
@@ -254,7 +254,7 @@ export const detailedProjects: DetailedProject[] = [
       end: "dezembro/2021",
     },
     description:
-      "Iniciei como frontend e, ao longo do projeto, colaborei em melhorias de backend. O projeto consistia em marketplace de peças e serviços para bicicletas, com cadastro de produtos, carrinho e área do cliente.",
+      "Inciado como frontend e, ao longo do projeto, colaborei em melhorias de backend. O projeto consistia em marketplace de peças e serviços para bicicletas, com cadastro de produtos, carrinho e área do cliente.",
     responsibilities: [
       "Desenvolvi SPA em React + Material‑UI + styled‑components, implementando filtros dinâmicos com Redux e GraphQL.",
       "Apoiei construção de API GraphQL em Express + Knex, criando resolvers e testes unitários em Jest.",
@@ -278,7 +278,7 @@ export const detailedProjects: DetailedProject[] = [
       end: "abril/2022",
     },
     description:
-      "Desenvolvimento de aplicativo mobile e web para plataforma educacional, com cadastros de alunos, aulas e relatórios de desempenho.",
+      "Suporte e desenvolvimento de novas funcionalidades tanto para o Painel Administrativo quanto para o App. Planejamento e execução de novas atividades com o Time Professor ferreto, seguindo regras de negócios e gerenciando tempo de entrega.",
     responsibilities: [
       "Construi mobile app em React Native + Redux + GraphQL, integrando SQLite para cache offline e notificações push.",
       "Desenvolvi web em React + Material‑UI, criando componentes reutilizáveis e gerenciando estado com useContext.",
@@ -362,7 +362,7 @@ export const detailedProjects: DetailedProject[] = [
       end: "abril/2022",
     },
     description:
-      "Desenvolvimento de app mobile para operações financeiras integradas, com in‑app purchases e notificações.",
+      "Colaboração no desenvolvimento de app mobile para operações financeiras, com in‑app purchases e notificações.",
     responsibilities: [
       "Criei interfaces em React Native + Expo, integrando compra de serviços via In‑App Purchase e push notifications.",
       "Refatorei endpoints Python/Django + Celery, melhorando performance de processamento de tasks assíncronas.",
@@ -394,7 +394,7 @@ export const detailedProjects: DetailedProject[] = [
       },
     },
     description:
-      "Finalização, suporte e manutenção de app de desafios e recompensas, com fluxos de compra e notificações.",
+      "Finalização, suporte e manutenção de app de desafios e recompensas, com fluxos de compra e notificações e streaming de videos.",
     responsibilities: [
       "Entreguei telas em React Native + Expo, integrando notificações e In‑App Purchases.",
       "Ajustei backend em Express + TypeORM, configurando jobs com Node Cron e Worker Threads para envio de lembretes.",
