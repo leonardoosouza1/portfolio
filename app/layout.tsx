@@ -14,11 +14,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  params, // Add params here
 }: {
   children: React.ReactNode
+  params: { lang: string } // Define the type for params
 }) {
   return (
-    <html lang="pt-BR" suppressHydrationWarning>
+    <html lang={params.lang} suppressHydrationWarning> {/* Use params.lang here */}
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           {children}
