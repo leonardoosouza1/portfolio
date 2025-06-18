@@ -7,8 +7,11 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Menu, X, Home } from "lucide-react"
 import { ModeToggle } from "./mode-toggle"
+import { LanguageSwitcher } from "./language-switcher";
+import { useTranslation } from 'next-i18next';
 
 export function Header() {
+  const { t } = useTranslation('common');
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const pathname = usePathname()
   const [isScrolled, setIsScrolled] = useState(false)
@@ -61,7 +64,7 @@ export function Header() {
             onClick={(e) => handleNavClick(e, "/")}
           >
             <Home className="mr-1 h-4 w-4" />
-            Home
+            {t('home')}
           </Link>
 
           {/* Section links work as anchor links on home page, or navigate to home page with anchor on other pages */}
@@ -117,6 +120,7 @@ export function Header() {
         </nav>
 
         <div className="flex items-center space-x-2">
+          <LanguageSwitcher />
           <ModeToggle />
           <button className="md:hidden" onClick={toggleMenu} aria-label={isMenuOpen ? "Close menu" : "Open menu"}>
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -134,7 +138,7 @@ export function Header() {
               onClick={(e) => handleNavClick(e, "/")}
             >
               <Home className="mr-2 h-5 w-5" />
-              Home
+              {t('home')}
             </Link>
 
             <Link
