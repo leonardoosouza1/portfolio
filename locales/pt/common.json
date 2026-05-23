@@ -1,0 +1,37 @@
+{
+  "nav": {
+    "about": "Sobre",
+    "experience": "Experiência",
+    "skills": "Habilidades",
+    "projects": "Projetos",
+    "contact": "Contato"
+  },
+  "menu": {
+    "open": "Abrir menu",
+    "close": "Fechar menu"
+  },
+  "language": {
+    "label": "Idioma",
+    "pt": "Português",
+    "en": "English"
+  },
+  "contact": {
+    "heading": "Contato",
+    "infoTitle": "Informações de Contato",
+    "infoDescription": "Você também pode me contatar através destes canais.",
+    "emailLabel": "Email",
+    "phoneLabel": "Telefone",
+    "locationLabel": "Localização",
+    "location": "Palhoça, Santa Catarina, Brasil"
+  },
+  "footer": {
+    "rights": "Todos os direitos reservados."
+  },
+  "projectsPage": {
+    "backHome": "Voltar para Home",
+    "title": "Projetos",
+    "subtitle": "Conheça os principais projetos que desenvolvi ao longo da minha carreira.",
+    "backToProjects": "Voltar para Projetos",
+    "loading": "Carregando detalhes do projeto..."
+  }
+}

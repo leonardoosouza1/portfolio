@@ -1,13 +1,19 @@
+"use client"
+
 import Image from "next/image"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import type { DetailedProject } from "@/lib/projects-data"
+import { useI18n } from "@/lib/i18n/provider"
 
 type ProjectDetailProps = {
   project: DetailedProject
 }
 
 export function ProjectDetail({ project }: ProjectDetailProps) {
+  const { dict } = useI18n()
+  const t = dict.projects.detail
+
   return (
     <div className="space-y-6">
       <div>
@@ -17,7 +23,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
 
       <div className="flex flex-col sm:flex-row gap-2 sm:gap-6 text-sm">
         <div>
-          <span className="font-medium">Desenvolvimento inicial:</span>{" "}
+          <span className="font-medium">{t.initialDev}</span>{" "}
           <span className="text-muted-foreground">
             {project.period.start} – {project.period.end}
           </span>
@@ -45,12 +51,12 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
       )}
 
       <div>
-        <h2 className="text-xl font-semibold mb-2">Descrição</h2>
+        <h2 className="text-xl font-semibold mb-2">{t.description}</h2>
         <p className="text-muted-foreground">{project.description}</p>
       </div>
 
       <div>
-        <h2 className="text-xl font-semibold mb-2">Responsabilidades e conquistas</h2>
+        <h2 className="text-xl font-semibold mb-2">{t.respAndAchievements}</h2>
         <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
           {project.responsibilities.map((responsibility, index) => (
             <li key={index}>{responsibility}</li>
@@ -60,8 +66,8 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
 
       <Tabs defaultValue="technologies">
         <TabsList>
-          <TabsTrigger value="technologies">Tecnologias</TabsTrigger>
-          <TabsTrigger value="skills">Habilidades</TabsTrigger>
+          <TabsTrigger value="technologies">{t.technologies}</TabsTrigger>
+          <TabsTrigger value="skills">{t.skills}</TabsTrigger>
         </TabsList>
         <TabsContent value="technologies" className="pt-4">
           <div className="flex flex-wrap gap-2">

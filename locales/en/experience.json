@@ -1,0 +1,104 @@
+{
+  "heading": "Professional Experience",
+  "labels": {
+    "responsibilities": "Responsibilities:",
+    "achievements": "Key Achievements:",
+    "technologies": "Technologies & Skills:"
+  },
+  "items": [
+    {
+      "id": 1,
+      "role": "Full Stack Developer",
+      "company": "Plathanus Software & Design",
+      "period": "2021 - Present",
+      "summary": "As a full stack developer, I help plan, develop and maintain web and mobile applications for various clients, working across all technology layers and ensuring high quality, performance and scalability.",
+      "responsibilities": [
+        "Design and implement intuitive interfaces with React, Next.js, React Native and Flutter, prioritizing user experience and accessibility.",
+        "Develop robust APIs with NestJS, Express, Django, FastAPI and Java/Spring Boot, defining REST and GraphQL endpoints.",
+        "Structure CI/CD pipelines with GitHub Actions, Docker, Portainer and Nginx for reliable deployments and controlled rollback.",
+        "Technically lead strategic projects (Plathanus Website & Blog), defining architecture, reviewing code and mentoring junior developers.",
+        "Collaborate with multidisciplinary teams on system diagnostics, technical support and performance optimization."
+      ],
+      "achievements": [
+        "30% reduction in deployment time through pipeline automation.",
+        "25% improvement in unit test coverage, ensuring greater reliability in releases.",
+        "Mentoring of 4 junior developers, accelerating their ramp-up and technical autonomy."
+      ],
+      "technologies": [
+        "TypeScript",
+        "Python",
+        "Java",
+        "Spring Boot",
+        "React",
+        "Next.js",
+        "React Native",
+        "Flutter",
+        "NestJS",
+        "Express.js",
+        "Django",
+        "FastAPI",
+        "GraphQL",
+        "Docker",
+        "Portainer",
+        "Nginx",
+        "GitHub Actions",
+        "CI/CD",
+        "Technical Mentoring"
+      ]
+    },
+    {
+      "id": 2,
+      "role": "Frontend Developer",
+      "company": "Adapt Soluções EAD",
+      "period": "2020 - 2021",
+      "summary": "I led the development of landing pages and interactive components for distance learning platforms, ensuring high engagement and compatibility with SCORM standards.",
+      "responsibilities": [
+        "Create responsive layouts and reusable components with HTML5, CSS3, JavaScript and React.",
+        "Develop and maintain UI component library, accelerating delivery of new pages.",
+        "Integrate front-end with LMS systems via SCORM 1.2, ensuring progress tracking and course reporting.",
+        "Conduct usability testing and performance adjustments, improving loading on mobile devices."
+      ],
+      "achievements": [
+        "40% increase in average time spent on landing pages.",
+        "Implementation of component library that reduced new feature development effort by 50%."
+      ],
+      "technologies": [
+        "React",
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "SCORM 1.2",
+        "Component Library",
+        "Performance Optimization"
+      ]
+    },
+    {
+      "id": 3,
+      "role": "Freelance Developer",
+      "company": "Independent Projects",
+      "period": "2020 - Present",
+      "summary": "I work autonomously creating custom web and mobile solutions and conducting AI research from scratch, handling demands ranging from e-commerce to corporate integrations — always focusing on scalability, user experience and mastery of the systems I build.",
+      "responsibilities": [
+        "House Cell: E-commerce integrated with WhatsApp API for sales closure, built with React and Express/Mongoose.",
+        "Finance (Sispack): Unified portal with Microsoft Teams (Graph API) and Power BI integrations, developed in React/Redux and NestJS/TypeORM.",
+        "I deploy and self-host my own projects end-to-end, configuring Portainer and Nginx Proxy Manager (reverse proxy + SSL) to launch them securely.",
+        "IARA (AI research): In Rust and Python, I build byte-level language models and LLM inference engines from scratch — custom GPU kernels (wgpu/WGSL, ROCm/HIP), backpropagation, optimizers and quantization formats, without high-level ML frameworks."
+      ],
+      "technologies": [
+        "React",
+        "Redux",
+        "Express",
+        "Mongoose",
+        "NestJS",
+        "TypeORM",
+        "Rust",
+        "Python",
+        "wgpu / WGSL",
+        "ROCm / HIP",
+        "Docker",
+        "Portainer",
+        "Nginx Proxy Manager"
+      ]
+    }
+  ]
+}

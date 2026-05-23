@@ -1,0 +1,37 @@
+{
+  "nav": {
+    "about": "About",
+    "experience": "Experience",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "menu": {
+    "open": "Open menu",
+    "close": "Close menu"
+  },
+  "language": {
+    "label": "Language",
+    "pt": "Português",
+    "en": "English"
+  },
+  "contact": {
+    "heading": "Contact",
+    "infoTitle": "Contact Information",
+    "infoDescription": "You can also reach me through these channels.",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone",
+    "locationLabel": "Location",
+    "location": "Palhoça, Santa Catarina, Brazil"
+  },
+  "footer": {
+    "rights": "All rights reserved."
+  },
+  "projectsPage": {
+    "backHome": "Back to Home",
+    "title": "Projects",
+    "subtitle": "Discover the main projects I've developed throughout my career.",
+    "backToProjects": "Back to Projects",
+    "loading": "Loading project details..."
+  }
+}

@@ -19,28 +19,44 @@ import {
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
 } from "@/components/ui/dropdown-menu"
-import { detailedProjects, getAllProjectTechnologies, getAllProjectSkills } from "@/lib/projects-data"
+import { getAllProjectTechnologies, getAllProjectSkills, type DetailedProject } from "@/lib/projects-data"
+import { useI18n } from "@/lib/i18n/provider"
 
 type SortOption = "recent" | "oldest" | "alphabetical"
 
+function sortProjects(projects: DetailedProject[], sortOption: SortOption): DetailedProject[] {
+  const sorted = [...projects]
+  switch (sortOption) {
+    case "recent":
+      return sorted.sort((a, b) => b.period.end.localeCompare(a.period.end))
+    case "oldest":
+      return sorted.sort((a, b) => a.period.start.localeCompare(b.period.start))
+    case "alphabetical":
+      return sorted.sort((a, b) => a.title.localeCompare(b.title))
+    default:
+      return sorted
+  }
+}
+
 export function FilteredProjectsList() {
+  const { dict } = useI18n()
+  const t = dict.projects.list
+  const projects = dict.projects.items as unknown as DetailedProject[]
+
   const [searchTerm, setSearchTerm] = useState("")
   const [selectedTechs, setSelectedTechs] = useState<string[]>([])
   const [selectedSkills, setSelectedSkills] = useState<string[]>([])
   const [selectedCompanies, setSelectedCompanies] = useState<string[]>([])
   const [sortBy, setSortBy] = useState<SortOption>("recent")
-  const [filteredProjects, setFilteredProjects] = useState(detailedProjects)
+  const [filteredProjects, setFilteredProjects] = useState<DetailedProject[]>(projects)
 
-  // Get all unique technologies, skills, and companies
-  const allTechnologies = getAllProjectTechnologies()
-  const allSkills = getAllProjectSkills()
-  const allCompanies = Array.from(new Set(detailedProjects.map((project) => project.company))).sort()
+  const allTechnologies = getAllProjectTechnologies(projects)
+  const allSkills = getAllProjectSkills(projects)
+  const allCompanies = Array.from(new Set(projects.map((project) => project.company))).sort()
 
-  // Apply filters and sorting
   useEffect(() => {
-    let results = [...detailedProjects]
+    let results = [...projects]
 
-    // Filter by search term
     if (searchTerm) {
       const term = searchTerm.toLowerCase()
       results = results.filter(
@@ -53,71 +69,30 @@ export function FilteredProjectsList() {
       )
     }
 
-    // Filter by selected technologies
     if (selectedTechs.length > 0) {
       results = results.filter((project) => selectedTechs.some((tech) => project.technologies.includes(tech)))
     }
 
-    // Filter by selected skills
     if (selectedSkills.length > 0) {
       results = results.filter((project) => selectedSkills.some((skill) => project.skills.includes(skill)))
     }
 
-    // Filter by selected companies
     if (selectedCompanies.length > 0) {
       results = results.filter((project) => selectedCompanies.includes(project.company))
     }
 
-    // Sort results
-    results = sortProjects(results, sortBy)
+    setFilteredProjects(sortProjects(results, sortBy))
+  }, [searchTerm, selectedTechs, selectedSkills, selectedCompanies, sortBy, projects])
 
-    setFilteredProjects(results)
-  }, [searchTerm, selectedTechs, selectedSkills, selectedCompanies, sortBy])
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)
 
-  // Sort projects based on selected option
-  const sortProjects = (projects: typeof detailedProjects, sortOption: SortOption) => {
-    const sortedProjects = [...projects]
-
-    switch (sortOption) {
-      case "recent":
-        return sortedProjects.sort((a, b) => {
-          // Assume que o período mais recente está no final (ex: "2024" > "2023")
-          return b.period.end.localeCompare(a.period.end)
-        })
-      case "oldest":
-        return sortedProjects.sort((a, b) => {
-          return a.period.start.localeCompare(b.period.start)
-        })
-      case "alphabetical":
-        return sortedProjects.sort((a, b) => {
-          return a.title.localeCompare(b.title)
-        })
-      default:
-        return sortedProjects
-    }
-  }
-
-  // Handle search input change
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value)
-  }
-
-  // Toggle technology filter
-  const toggleTech = (tech: string) => {
+  const toggleTech = (tech: string) =>
     setSelectedTechs((prev) => (prev.includes(tech) ? prev.filter((t) => t !== tech) : [...prev, tech]))
-  }
-
-  // Toggle skill filter
-  const toggleSkill = (skill: string) => {
+  const toggleSkill = (skill: string) =>
     setSelectedSkills((prev) => (prev.includes(skill) ? prev.filter((s) => s !== skill) : [...prev, skill]))
-  }
-
-  // Toggle company filter
-  const toggleCompany = (company: string) => {
+  const toggleCompany = (company: string) =>
     setSelectedCompanies((prev) => (prev.includes(company) ? prev.filter((c) => c !== company) : [...prev, company]))
-  }
 
-  // Clear all filters
   const clearFilters = () => {
     setSearchTerm("")
     setSelectedTechs([])
@@ -131,7 +106,7 @@ export function FilteredProjectsList() {
       <div className="flex flex-col sm:flex-row gap-4">
         <div className="relative flex-grow">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-          <Input placeholder="Buscar projetos..." value={searchTerm} onChange={handleSearchChange} className="pl-10" />
+          <Input placeholder={t.searchPlaceholder} value={searchTerm} onChange={handleSearchChange} className="pl-10" />
         </div>
 
         <div className="flex gap-2">
@@ -139,7 +114,7 @@ export function FilteredProjectsList() {
             <DropdownMenuTrigger asChild>
               <Button variant="outline" className="flex items-center gap-2">
                 <Filter className="h-4 w-4" />
-                Filtros
+                {t.filters}
                 {(selectedTechs.length > 0 || selectedSkills.length > 0 || selectedCompanies.length > 0) && (
                   <Badge variant="secondary" className="ml-2">
                     {selectedTechs.length + selectedSkills.length + selectedCompanies.length}
@@ -148,12 +123,12 @@ export function FilteredProjectsList() {
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-64 max-h-[70vh] overflow-y-auto">
-              <DropdownMenuLabel>Filtrar Projetos</DropdownMenuLabel>
+              <DropdownMenuLabel>{t.filterProjects}</DropdownMenuLabel>
               <DropdownMenuSeparator />
 
               <DropdownMenuLabel className="flex items-center">
                 <Building className="h-4 w-4 mr-2" />
-                Empresas
+                {t.companies}
               </DropdownMenuLabel>
               {allCompanies.map((company) => (
                 <DropdownMenuCheckboxItem
@@ -169,7 +144,7 @@ export function FilteredProjectsList() {
 
               <DropdownMenuLabel className="flex items-center">
                 <Code className="h-4 w-4 mr-2" />
-                Tecnologias
+                {t.technologies}
               </DropdownMenuLabel>
               {allTechnologies.map((tech) => (
                 <DropdownMenuCheckboxItem
@@ -185,7 +160,7 @@ export function FilteredProjectsList() {
 
               <DropdownMenuLabel className="flex items-center">
                 <Briefcase className="h-4 w-4 mr-2" />
-                Habilidades
+                {t.skills}
               </DropdownMenuLabel>
               {allSkills.map((skill) => (
                 <DropdownMenuCheckboxItem
@@ -203,14 +178,14 @@ export function FilteredProjectsList() {
             <DropdownMenuTrigger asChild>
               <Button variant="outline" className="flex items-center gap-2">
                 {sortBy === "recent" ? <SortDesc className="h-4 w-4" /> : <SortAsc className="h-4 w-4" />}
-                Ordenar
+                {t.sort}
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
               <DropdownMenuRadioGroup value={sortBy} onValueChange={(value) => setSortBy(value as SortOption)}>
-                <DropdownMenuRadioItem value="recent">Mais recentes</DropdownMenuRadioItem>
-                <DropdownMenuRadioItem value="oldest">Mais antigos</DropdownMenuRadioItem>
-                <DropdownMenuRadioItem value="alphabetical">Ordem alfabética</DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value="recent">{t.sortRecent}</DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value="oldest">{t.sortOldest}</DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value="alphabetical">{t.sortAlphabetical}</DropdownMenuRadioItem>
               </DropdownMenuRadioGroup>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -220,7 +195,7 @@ export function FilteredProjectsList() {
             selectedSkills.length > 0 ||
             selectedCompanies.length > 0 ||
             sortBy !== "recent") && (
-            <Button variant="ghost" onClick={clearFilters} aria-label="Limpar filtros">
+            <Button variant="ghost" onClick={clearFilters} aria-label={t.clearFilters}>
               <X className="h-4 w-4" />
             </Button>
           )}
@@ -242,7 +217,7 @@ export function FilteredProjectsList() {
                 size="icon"
                 className="h-4 w-4 p-0 ml-1"
                 onClick={() => toggleCompany(company)}
-                aria-label={`Remover filtro ${company}`}
+                aria-label={company}
               >
                 <X className="h-3 w-3" />
               </Button>
@@ -258,7 +233,7 @@ export function FilteredProjectsList() {
                 size="icon"
                 className="h-4 w-4 p-0 ml-1"
                 onClick={() => toggleTech(tech)}
-                aria-label={`Remover filtro ${tech}`}
+                aria-label={tech}
               >
                 <X className="h-3 w-3" />
               </Button>
@@ -274,7 +249,7 @@ export function FilteredProjectsList() {
                 size="icon"
                 className="h-4 w-4 p-0 ml-1"
                 onClick={() => toggleSkill(skill)}
-                aria-label={`Remover filtro ${skill}`}
+                aria-label={skill}
               >
                 <X className="h-3 w-3" />
               </Button>
@@ -284,17 +259,15 @@ export function FilteredProjectsList() {
       )}
 
       <div className="text-sm text-muted-foreground mb-2">
-        {filteredProjects.length} {filteredProjects.length === 1 ? "projeto encontrado" : "projetos encontrados"}
+        {filteredProjects.length} {filteredProjects.length === 1 ? t.foundOne : t.foundOther}
       </div>
 
       {filteredProjects.length === 0 ? (
         <div className="text-center py-16 border rounded-lg">
-          <h3 className="text-xl font-medium mb-2">Nenhum projeto encontrado</h3>
-          <p className="text-muted-foreground">
-            Tente ajustar sua busca ou filtros para encontrar o que está procurando.
-          </p>
+          <h3 className="text-xl font-medium mb-2">{t.emptyTitle}</h3>
+          <p className="text-muted-foreground">{t.emptyText}</p>
           <Button variant="outline" onClick={clearFilters} className="mt-4">
-            Limpar Filtros
+            {t.clearFilters}
           </Button>
         </div>
       ) : (
@@ -309,7 +282,7 @@ export function FilteredProjectsList() {
               </CardHeader>
               <CardContent className="flex-grow">
                 <div className="text-sm text-muted-foreground mb-2">
-                  <span className="font-medium">Período:</span> {project.period.start} – {project.period.end}
+                  <span className="font-medium">{t.periodLabel}</span> {project.period.start} – {project.period.end}
                   {project.period.additional && (
                     <div className="mt-1 text-xs">
                       <span className="font-medium">{project.period.additional.label}:</span>{" "}
@@ -331,7 +304,7 @@ export function FilteredProjectsList() {
               </CardContent>
               <CardFooter>
                 <Button variant="outline" asChild className="w-full">
-                  <Link href={`/projects/${project.id}`}>Ver Detalhes</Link>
+                  <Link href={`/projects/${project.id}`}>{t.viewDetails}</Link>
                 </Button>
               </CardFooter>
             </Card>

@@ -1,24 +1,30 @@
+"use client"
+
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { detailedProjects } from "@/lib/projects-data"
+import { useI18n } from "@/lib/i18n/provider"
+import type { DetailedProject } from "@/lib/projects-data"
 
 export function SimplifiedProjects() {
+  const { dict } = useI18n()
+  const t = dict.projects.featured
+  const allProjects = dict.projects.items as unknown as DetailedProject[]
   // Mostrar apenas os 4 projetos mais recentes na home
-  const featuredProjects = detailedProjects.slice(0, 4)
+  const featuredProjects = allProjects.slice(0, 4)
 
   return (
     <section id="projects" className="py-16">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
         <div>
-          <h2 className="text-3xl font-bold mb-2">Projetos Destacados</h2>
-          <p className="text-muted-foreground">Conheça alguns dos meus trabalhos mais recentes</p>
+          <h2 className="text-3xl font-bold mb-2">{t.heading}</h2>
+          <p className="text-muted-foreground">{t.subtitle}</p>
         </div>
         <Button asChild className="mt-4 md:mt-0">
           <Link href="/projects" className="flex items-center">
-            Ver Todos os Projetos
+            {t.viewAll}
             <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </Button>
@@ -33,7 +39,7 @@ export function SimplifiedProjects() {
             </CardHeader>
             <CardContent className="flex-grow">
               <div className="text-sm text-muted-foreground mb-2">
-                <span className="font-medium">Período:</span> {project.period.start} – {project.period.end}
+                <span className="font-medium">{t.periodLabel}</span> {project.period.start} – {project.period.end}
               </div>
               <p className="text-muted-foreground mb-4 line-clamp-3">{project.description}</p>
               <div className="flex flex-wrap gap-2">
@@ -47,7 +53,7 @@ export function SimplifiedProjects() {
             </CardContent>
             <CardFooter>
               <Button variant="outline" asChild className="w-full">
-                <Link href={`/projects/${project.id}`}>Ver Detalhes</Link>
+                <Link href={`/projects/${project.id}`}>{t.viewDetails}</Link>
               </Button>
             </CardFooter>
           </Card>
@@ -55,14 +61,11 @@ export function SimplifiedProjects() {
       </div>
 
       <div className="mt-12 text-center bg-muted/30 p-8 rounded-lg border">
-        <h3 className="text-2xl font-bold mb-4">Explore Meu Portfólio Completo</h3>
-        <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-          Veja todos os meus {detailedProjects.length} projetos, filtre por tecnologias ou habilidades específicas e
-          descubra mais sobre minha experiência profissional.
-        </p>
+        <h3 className="text-2xl font-bold mb-4">{t.ctaTitle}</h3>
+        <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">{t.ctaText}</p>
         <Button size="lg" asChild>
           <Link href="/projects" className="flex items-center">
-            Acessar Portfólio Completo
+            {t.ctaBtn}
             <ArrowRight className="ml-2 h-5 w-5" />
           </Link>
         </Button>

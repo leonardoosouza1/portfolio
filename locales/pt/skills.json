@@ -1,0 +1,33 @@
+{
+  "heading": "Habilidades Técnicas",
+  "categories": [
+    {
+      "name": "Linguagens",
+      "skills": ["TypeScript", "JavaScript", "Python", "Java", "Rust", "SQL"]
+    },
+    {
+      "name": "Frontend & Mobile",
+      "skills": ["React", "Next.js", "React Native", "Flutter", "TypeScript", "Tailwind CSS", "Chakra UI", "Styled-components"]
+    },
+    {
+      "name": "Backend",
+      "skills": ["Node.js", "NestJS", "Express", "Django", "FastAPI", "Java / Spring Boot", "GraphQL", "REST APIs"]
+    },
+    {
+      "name": "Banco de Dados",
+      "skills": ["PostgreSQL", "MongoDB", "PrismaORM", "TypeORM", "Redis"]
+    },
+    {
+      "name": "DevOps & Infra",
+      "skills": ["Docker", "Portainer", "Nginx Proxy Manager", "CI/CD", "GitHub Actions", "AWS", "Nginx", "Linux", "Self-Hosting"]
+    },
+    {
+      "name": "IA & GPU",
+      "skills": ["LLMs do zero", "GPU Computing", "WGSL / wgpu", "ROCm / HIP", "Quantização", "PyTorch", "Pesquisa em IA"]
+    },
+    {
+      "name": "Ferramentas",
+      "skills": ["Git", "VS Code", "Figma", "Jira", "ClickUp", "Agile/Scrum"]
+    }
+  ]
+}

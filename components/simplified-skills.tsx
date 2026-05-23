@@ -1,40 +1,18 @@
+"use client"
+
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-
-type SkillCategory = {
-  name: string
-  skills: string[]
-}
-
-const skillCategories: SkillCategory[] = [
-  {
-    name: "Frontend",
-    skills: ["React", "Next.js", "React Native", "TypeScript", "Tailwind CSS", "Chakra UI", "Styled-components"],
-  },
-  {
-    name: "Backend",
-    skills: ["Node.js", "NestJS", "Express", "Django", "FastAPI", "GraphQL", "REST APIs"],
-  },
-  {
-    name: "Banco de Dados",
-    skills: ["PostgreSQL", "MongoDB", "PrismaORM", "TypeORM", "Redis"],
-  },
-  {
-    name: "DevOps",
-    skills: ["Docker", "CI/CD", "GitHub Actions", "AWS", "Nginx", "Linux"],
-  },
-  {
-    name: "Ferramentas",
-    skills: ["Git", "VS Code", "Figma", "Jira", "ClickUp", "Agile/Scrum"],
-  },
-]
+import { useI18n } from "@/lib/i18n/provider"
 
 export function SimplifiedSkills() {
+  const { dict } = useI18n()
+  const t = dict.skills
+
   return (
     <section id="skills" className="py-16">
-      <h2 className="text-3xl font-bold mb-8">Habilidades Técnicas</h2>
+      <h2 className="text-3xl font-bold mb-8">{t.heading}</h2>
       <div className="grid gap-6 md:grid-cols-2">
-        {skillCategories.map((category) => (
+        {t.categories.map((category) => (
           <Card key={category.name}>
             <CardHeader>
               <CardTitle>{category.name}</CardTitle>

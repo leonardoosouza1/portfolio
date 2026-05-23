@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button"
 import { Mail, MapPin, Phone } from "lucide-react"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { useToast } from "@/hooks/use-toast"
+import { useI18n } from "@/lib/i18n/provider"
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Nome deve ter pelo menos 2 caracteres" }),
@@ -23,6 +24,8 @@ type ContactFormValues = z.infer<typeof formSchema>
 export function SimplifiedContact() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const { toast } = useToast()
+  const { dict } = useI18n()
+  const t = dict.common.contact
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(formSchema),
@@ -50,7 +53,7 @@ export function SimplifiedContact() {
 
   return (
     <section id="contact" className="py-16">
-      <h2 className="text-3xl font-bold mb-8">Contato</h2>
+      <h2 className="text-3xl font-bold mb-8">{t.heading}</h2>
       <div className="grid gap-8 md:grid-cols-2">
        {/* <Card>
           <CardHeader>
@@ -109,14 +112,14 @@ export function SimplifiedContact() {
 */}
         <Card>
           <CardHeader>
-            <CardTitle>Informações de Contato</CardTitle>
-            <CardDescription>Você também pode me contatar através destes canais.</CardDescription>
+            <CardTitle>{t.infoTitle}</CardTitle>
+            <CardDescription>{t.infoDescription}</CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
             <div className="flex items-start space-x-4">
               <Mail className="h-6 w-6 text-primary mt-0.5" />
               <div>
-                <h3 className="font-medium">Email</h3>
+                <h3 className="font-medium">{t.emailLabel}</h3>
                 <p className="text-muted-foreground">leonardo.souzadev@gmail.com</p>
               </div>
             </div>
@@ -124,7 +127,7 @@ export function SimplifiedContact() {
             <div className="flex items-start space-x-4">
               <Phone className="h-6 w-6 text-primary mt-0.5" />
               <div>
-                <h3 className="font-medium">Telefone</h3>
+                <h3 className="font-medium">{t.phoneLabel}</h3>
                 <p className="text-muted-foreground">+55 48 99192-7339</p>
               </div>
             </div>
@@ -132,8 +135,8 @@ export function SimplifiedContact() {
             <div className="flex items-start space-x-4">
               <MapPin className="h-6 w-6 text-primary mt-0.5" />
               <div>
-                <h3 className="font-medium">Localização</h3>
-                <p className="text-muted-foreground">Palhoça, Santa Catarina, Brasil</p>
+                <h3 className="font-medium">{t.locationLabel}</h3>
+                <p className="text-muted-foreground">{t.location}</p>
               </div>
             </div>
           </CardContent>

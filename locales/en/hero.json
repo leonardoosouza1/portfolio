@@ -1,0 +1,7 @@
+{
+  "name": "Leonardo Souza",
+  "title": "Full Stack Developer · AI / GPU Systems",
+  "bio": "Full stack developer with over 5 years of experience building scalable, high-performance applications in remote and agile teams. I work with TypeScript, Python, and Java (Spring Boot) — from front-end and mobile (Next.js, React Native, Flutter) to back-end (NestJS, Django, FastAPI) — and take projects all the way to production with Docker, Portainer, Nginx Proxy Manager, and GitHub Actions. In personal projects, I research AI from scratch in Python and Rust, building language models and GPU inference engines without high-level frameworks.",
+  "contactBtn": "Contact",
+  "projectsBtn": "View Projects"
+}

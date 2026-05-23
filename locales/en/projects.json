@@ -1,0 +1,552 @@
+{
+  "featured": {
+    "heading": "Featured Projects",
+    "subtitle": "Discover some of my most recent work",
+    "viewAll": "View All Projects",
+    "viewDetails": "View Details",
+    "periodLabel": "Period:",
+    "ctaTitle": "Explore My Complete Portfolio",
+    "ctaText": "See all my projects, filter by specific technologies or skills, and discover more about my professional experience.",
+    "ctaBtn": "Access Full Portfolio"
+  },
+  "list": {
+    "searchPlaceholder": "Search projects...",
+    "filters": "Filters",
+    "filterProjects": "Filter Projects",
+    "companies": "Companies",
+    "technologies": "Technologies",
+    "skills": "Skills",
+    "sort": "Sort",
+    "sortRecent": "Most recent",
+    "sortOldest": "Oldest",
+    "sortAlphabetical": "Alphabetical order",
+    "clearFilters": "Clear Filters",
+    "foundOne": "project found",
+    "foundOther": "projects found",
+    "emptyTitle": "No projects found",
+    "emptyText": "Try adjusting your search or filters to find what you're looking for.",
+    "viewDetails": "View Details",
+    "periodLabel": "Period:"
+  },
+  "detail": {
+    "initialDev": "Initial development:",
+    "description": "Description",
+    "respAndAchievements": "Responsibilities and achievements",
+    "technologies": "Technologies",
+    "skills": "Skills"
+  },
+  "items": [
+    {
+      "id": 15,
+      "title": "IARA – AI / GPU Research (LLMs from scratch)",
+      "company": "Personal Project",
+      "period": {
+        "start": "2025",
+        "end": "Present"
+      },
+      "description": "An AI research ecosystem built entirely from scratch in Rust and Python, without high-level ML frameworks. It includes an LLM inference engine with dynamic GPU backend (ROCm/HIP + OpenCL) and byte-level language models—operating directly on 256 bytes instead of BPE tokens, with hand-written GPU kernels, backpropagation, optimizers, and quantization formats. This is how I deepen my understanding of the systems behind modern AI rather than just consuming APIs.",
+      "responsibilities": [
+        "Implemented a byte-level transformer from scratch in wgpu/WGSL: tiled GEMM, causal softmax, RMSNorm, complete forward + backward passes, and AdamW optimizer, all resident on the GPU.",
+        "Wrote custom GPU kernels and optimized throughput (block-diagonal batching B×T, on-device clip-norm), achieving ~53k tokens/s on an AMD RX 6750 XT (RDNA2).",
+        "Built an LLM inference engine with HTTP/WebSocket API and Vue 3 frontend, supporting Qwen, Llama, Mistral, Phi, and Gemma in safetensors/GGUF formats.",
+        "Researched quantization (ternary / BitNet / custom .dna format) and distillation from larger models to compact byte-level models."
+      ],
+      "technologies": [
+        "Rust",
+        "Python",
+        "wgpu / WGSL",
+        "ROCm / HIP",
+        "OpenCL",
+        "GPU Computing",
+        "Vue 3",
+        "WebSockets",
+        "Quantization"
+      ],
+      "skills": [
+        "Low-level Machine Learning",
+        "GPU Programming",
+        "Transformer Architecture",
+        "Performance Optimization",
+        "LLM Inference",
+        "Applied Research"
+      ],
+      "image": "/placeholder.svg?height=450&width=800"
+    },
+    {
+      "id": 1,
+      "title": "Webjasper",
+      "company": "Plathanus",
+      "period": {
+        "start": "June 2023",
+        "end": "December 2023",
+        "additional": {
+          "label": "Support and maintenance",
+          "start": "January 2024",
+          "end": "August 2024"
+        }
+      },
+      "description": "Deployed a real-time monitoring platform for supermarket chains, consisting of an on-site agent (robot) and a web administrative panel. The solution captures connection metrics, data transfer volumes, types of information collected, and generates error reports and automatic alerts via SMS and email.",
+      "responsibilities": [
+        "Designed and implemented a RESTful API in NestJS, ensuring high availability and security in agent messaging.",
+        "Developed the dashboard in Next.js + Chakra UI, with interactive dashboards displaying usage statistics and event logs.",
+        "Coordinated asynchronous job logic (Node Cron and Worker Threads) to automate data collection and alert triggering.",
+        "Configured CI/CD pipelines with GitHub Actions, Docker orchestration, and Nginx reverse proxy, ensuring consistent deployments and rapid rollbacks.",
+        "Integrated PrismaORM and Jest for data modeling and automated testing, increasing system reliability.",
+        "Prepared analytical reports in Metabase, enabling the operations team to make data-driven decisions."
+      ],
+      "technologies": [
+        "TypeScript",
+        "Next.js",
+        "Chakra UI",
+        "Axios",
+        "useContext",
+        "NestJS",
+        "PrismaORM",
+        "Jest",
+        "Node Cron",
+        "Worker Threads",
+        "Docker",
+        "Nginx",
+        "GitHub Actions",
+        "Metabase"
+      ],
+      "skills": [
+        "API Development",
+        "Microservices Architecture",
+        "Analytics Dashboard",
+        "Task Automation",
+        "Unit and Integration Testing",
+        "DevOps & CI/CD",
+        "Containerization",
+        "Systems Monitoring"
+      ],
+      "image": "/placeholder.svg?height=450&width=800"
+    },
+    {
+      "id": 2,
+      "title": "ApexHub – Sports Events Platform",
+      "company": "Plathanus",
+      "period": {
+        "start": "November 2023",
+        "end": "February 2024",
+        "additional": {
+          "label": "Support and evolution",
+          "start": "February 2024",
+          "end": "August 2024"
+        }
+      },
+      "description": "Acted as full-stack in creating a ticket and services marketplace for sports events. From the institutional website to administrative panels for clients and companies, I evolved the initial MVP into a scalable solution, while also handling infrastructure and deployment automation.",
+      "responsibilities": [
+        "Developed front-end in Next.js + Tailwind, with sales pages and checkout optimized for conversion.",
+        "Modeled and implemented backend in Django, integrating Celery for asynchronous processing of notifications and sales reports.",
+        "Created a customized administrative panel in React, offering complete control of registrations, events, and financial reports via Pagar.me API.",
+        "Managed CI/CD pipelines and cloud infrastructure, ensuring zero-downtime releases.",
+        "Took full autonomy post-launch, executing bugfixes, minor feature implementations, and performance adjustments."
+      ],
+      "technologies": [
+        "TypeScript",
+        "Next.js",
+        "React",
+        "Tailwind CSS",
+        "useContext",
+        "Python",
+        "Django",
+        "Celery",
+        "Pagar.me API",
+        "CI/CD"
+      ],
+      "skills": [
+        "Full-Stack Development",
+        "UX/UI Design for E-commerce",
+        "Asynchronous Processing",
+        "Payment Gateway Integration",
+        "Infrastructure & Deployment",
+        "Performance Optimization"
+      ],
+      "image": "/placeholder.svg?height=450&width=800"
+    },
+    {
+      "id": 3,
+      "title": "Mingoo – Tourism Tours Booking Platform",
+      "company": "Plathanus",
+      "period": {
+        "start": "June 2024",
+        "end": "October 2024",
+        "additional": {
+          "label": "Ongoing support",
+          "start": "October 2024",
+          "end": "Currently"
+        }
+      },
+      "description": "Participated in creating a web and mobile app platform for online booking of guided tourism tours. I structured the API and administrative panel, in addition to implementing static and dynamic pages that integrate rich content with real-time booking features.",
+      "responsibilities": [
+        "Developed endpoints in NestJS + PrismaORM for tour guide registrations, tours, and reservations, with availability and payment controls.",
+        "Implemented the dashboard in Next.js + Material-UI, enabling route management, scheduling, and billing reports.",
+        "Structured periodic jobs (Node Cron) and workers for sending confirmations and automatic reminders, reducing no-shows by 30%.",
+        "Configured Docker environments with Nginx and GitHub Actions pipelines, ensuring scalability and safe rollbacks.",
+        "Created dashboards in Metabase, tracking sales metrics, cancellations, and guide ratings."
+      ],
+      "technologies": [
+        "Next.js",
+        "React",
+        "Material-UI",
+        "useContext",
+        "NestJS",
+        "PrismaORM",
+        "Jest",
+        "Node Cron",
+        "Worker Threads",
+        "Docker",
+        "Nginx",
+        "GitHub Actions",
+        "Metabase"
+      ],
+      "skills": [
+        "RESTful APIs",
+        "Reservation Management",
+        "Notification Automation",
+        "Automated Testing",
+        "DevOps & Containers",
+        "Data Analysis"
+      ],
+      "image": "/placeholder.svg?height=450&width=800"
+    },
+    {
+      "id": 4,
+      "title": "House Cell",
+      "company": "Freelance",
+      "period": {
+        "start": "May 2020",
+        "end": "June 2020"
+      },
+      "description": "Developed a simple e-commerce where customers build their shopping cart and, upon checkout, automatically initiate a WhatsApp conversation with the shopkeeper to complete the sale.",
+      "responsibilities": [
+        "Structured a SPA in React with styled-components, ensuring responsive and modular UI.",
+        "Implemented backend in Express + Mongoose, creating endpoints for product CRUD and cart management.",
+        "Integrated WhatsApp API for automatic message sending with order details."
+      ],
+      "technologies": [
+        "React",
+        "Styled-components",
+        "Express",
+        "Mongoose",
+        "WhatsApp API"
+      ],
+      "skills": [
+        "SPA Development",
+        "API Integration",
+        "NoSQL Data Modeling"
+      ],
+      "image": "/placeholder.svg?height=450&width=800"
+    },
+    {
+      "id": 5,
+      "title": "Finance",
+      "company": "Freelance",
+      "period": {
+        "start": "January 2024",
+        "end": "June 2024"
+      },
+      "description": "Worked on creating a unified portal (\"hub\") to centralize all Finance services, with strong integration to Microsoft Teams and Power BI ecosystems, providing users with a single access point for chat, meetings, calendar, and financial reports.",
+      "responsibilities": [
+        "Implemented front-end in React + Redux + Ant Design, consuming MSAL for Azure AD authentication.",
+        "Developed integrations with Microsoft Graph API: chat, meeting creation/editing/deletion, and calendar display.",
+        "Displayed embedded Power BI dashboards, enabling navigation and visualization of interactive reports.",
+        "Structured backend in NestJS + TypeORM, defining data models and secure routes; covered functionalities with Jest."
+      ],
+      "technologies": [
+        "JavaScript",
+        "React",
+        "Redux",
+        "Ant Design",
+        "React MSAL",
+        "NestJS",
+        "TypeORM",
+        "Jest"
+      ],
+      "skills": [
+        "SSO & OAuth2",
+        "Graph API",
+        "Power BI Embedding",
+        "Portal Development",
+        "Automated Testing"
+      ],
+      "image": "/placeholder.svg?height=450&width=800"
+    },
+    {
+      "id": 6,
+      "title": "Centerlight",
+      "company": "Plathanus",
+      "period": {
+        "start": "December 2024",
+        "end": "April 2025"
+      },
+      "description": "Full-stack in an aerodrome management and runway lighting device platform. I created user/permission APIs and aerodrome management APIs, all orchestrated via API Gateway for efficient inter-service communication.",
+      "responsibilities": [
+        "Planned and implemented frontend in Next.js + Tailwind, with login screens, dashboard, and device management.",
+        "Developed user and permission API in NestJS + Prisma, with role hierarchy and access validation.",
+        "Continued building the aerodrome API in NestJS + TypeORM; registered aerodromes, geolocation, device status, and real-time scheduling.",
+        "Collaborated on implementing an API Gateway for dynamic routing and security (JWT), deployment orchestration with Docker + GitHub Actions."
+      ],
+      "technologies": [
+        "React",
+        "Next.js",
+        "Tailwind CSS",
+        "NestJS",
+        "PrismaORM",
+        "TypeORM",
+        "Docker",
+        "GitHub Actions"
+      ],
+      "skills": [
+        "Microservices",
+        "API Gateway",
+        "Authentication and Authorization",
+        "Infrastructure as Code",
+        "UX Design"
+      ],
+      "image": "/placeholder.svg?height=450&width=800"
+    },
+    {
+      "id": 7,
+      "title": "Hashpay",
+      "company": "Plathanus",
+      "period": {
+        "start": "Early 2025",
+        "end": "MVP"
+      },
+      "description": "Developed initial website pages and administrative panel for selling mining terahash, allowing users to purchase hash capacity and configure receivables from a web portal.",
+      "responsibilities": [
+        "Implemented frontend in Next.js + Tailwind, with purchase flow and subscription dashboards.",
+        "Modeled backend in Django, creating APIs for plan registration, payment processing, and contract management."
+      ],
+      "technologies": [
+        "Next.js",
+        "Tailwind CSS",
+        "Django"
+      ],
+      "skills": [
+        "E-commerce MVP",
+        "Subscription Plan Modeling",
+        "Payment Gateway Integration"
+      ],
+      "image": "/placeholder.svg?height=450&width=800"
+    },
+    {
+      "id": 8,
+      "title": "Super Bike",
+      "company": "Plathanus",
+      "period": {
+        "start": "September 2021",
+        "end": "December 2021"
+      },
+      "description": "Started as frontend and, throughout the project, collaborated on backend improvements. The project consisted of a marketplace for bike parts and services, with product registration, cart, and customer area.",
+      "responsibilities": [
+        "Developed a SPA in React + Material-UI + styled-components, implementing dynamic filters with Redux and GraphQL.",
+        "Supported the construction of a GraphQL API in Express + Knex, creating resolvers and unit tests in Jest.",
+        "Collaborated on query optimization and performance bug fixes."
+      ],
+      "technologies": [
+        "React",
+        "Material-UI",
+        "styled-components",
+        "Redux",
+        "GraphQL",
+        "Express",
+        "Knex",
+        "Jest"
+      ],
+      "skills": [
+        "GraphQL Schema Design",
+        "SQL Query Optimization",
+        "Front/Backend Testing",
+        "Team Collaboration"
+      ],
+      "image": "/placeholder.svg?height=450&width=800"
+    },
+    {
+      "id": 9,
+      "title": "Professor Ferreto",
+      "company": "Plathanus",
+      "period": {
+        "start": "December 2021",
+        "end": "April 2022"
+      },
+      "description": "Support and development of new features for both the Administrative Panel and the App. Planning and execution of new activities with the Professor Ferreto team, following business rules and managing delivery timelines.",
+      "responsibilities": [
+        "Built mobile app in React Native + Redux + GraphQL, integrating SQLite for offline cache and push notifications.",
+        "Developed web in React + Material-UI, creating reusable components and managing state with useContext.",
+        "Implemented backend in Express + GraphQL + Mongoose, defining content models and data resolvers."
+      ],
+      "technologies": [
+        "React Native",
+        "Redux",
+        "Styled-components",
+        "GraphQL",
+        "SQLite",
+        "React",
+        "Material-UI",
+        "Express",
+        "Mongoose"
+      ],
+      "skills": [
+        "Mobile & Web Development",
+        "Offline Cache",
+        "Push Notifications",
+        "GraphQL API Design"
+      ],
+      "image": "/placeholder.svg?height=450&width=800"
+    },
+    {
+      "id": 10,
+      "title": "PV Operations | SunWeg",
+      "company": "Plathanus",
+      "period": {
+        "start": "April 2021",
+        "end": "August 2021"
+      },
+      "description": "Finalization and support of mobile app for monitoring photovoltaic systems, enabling real-time data display and failure alerts.",
+      "responsibilities": [
+        "Developed final screens and refinements in React Native + Expo, with push notifications and Axios integration.",
+        "Adjusted API consumption logic and state management with useContext, improving stability on unstable networks."
+      ],
+      "technologies": [
+        "React Native",
+        "Expo",
+        "Push Notification",
+        "styled-components",
+        "useContext",
+        "Axios"
+      ],
+      "skills": [
+        "Support & maintenance",
+        "Mobile Resilience",
+        "IoT Hardware Integration"
+      ],
+      "image": "/placeholder.svg?height=450&width=800"
+    },
+    {
+      "id": 11,
+      "title": "Sodexo | Pluxee (Wizeo)",
+      "company": "Plathanus",
+      "period": {
+        "start": "June 2021",
+        "end": "August 2021"
+      },
+      "description": "Support and maintenance of app and web portal for corporate benefits, working with the Sodexo team to evolve front-ends consuming internal APIs.",
+      "responsibilities": [
+        "Created components in React Native + styled-components and React + Material-UI, integrating Redux and Axios.",
+        "Implemented push notification flow and UI/UX adjustments according to brand guidelines."
+      ],
+      "technologies": [
+        "React Native",
+        "styled-components",
+        "Push Notification",
+        "Redux",
+        "Axios",
+        "React",
+        "Material-UI"
+      ],
+      "skills": [
+        "Adaptation to corporate guidelines",
+        "Support in complex environments"
+      ],
+      "image": "/placeholder.svg?height=450&width=800"
+    },
+    {
+      "id": 12,
+      "title": "Plathanus Website & Blog",
+      "company": "Plathanus",
+      "period": {
+        "start": "August 2021",
+        "end": "February 2022"
+      },
+      "description": "Technical leadership on Plathanus's institutional website and blog, acting from conception to deployment and coordinating junior developers.",
+      "responsibilities": [
+        "Planned Next.js + Chakra UI architecture, defining post flow, SEO, and page templates.",
+        "Backend implementation in Express + TypeORM to manage posts, users, and comments.",
+        "Mentored 2 junior developers, creating code guidelines and PR reviews."
+      ],
+      "technologies": [
+        "Next.js",
+        "Chakra UI",
+        "Express",
+        "TypeORM"
+      ],
+      "skills": [
+        "Technical Leadership",
+        "Feature Planning",
+        "Mentoring",
+        "Basic SEO"
+      ],
+      "image": "/placeholder.svg?height=450&width=800"
+    },
+    {
+      "id": 13,
+      "title": "CashOpera",
+      "company": "Plathanus",
+      "period": {
+        "start": "January 2022",
+        "end": "April 2022"
+      },
+      "description": "Collaboration in developing a mobile app for financial operations, with in-app purchases and notifications.",
+      "responsibilities": [
+        "Created interfaces in React Native + Expo, integrating service purchases via In-App Purchase and push notifications.",
+        "Refactored Python/Django + Celery endpoints, improving performance of asynchronous task processing."
+      ],
+      "technologies": [
+        "React Native",
+        "Expo",
+        "styled-components",
+        "Axios",
+        "useContext",
+        "In-App Purchase",
+        "Django",
+        "Celery"
+      ],
+      "skills": [
+        "Mobile Payments",
+        "Asynchronous Processing",
+        "Code Refactoring"
+      ],
+      "image": "/placeholder.svg?height=450&width=800"
+    },
+    {
+      "id": 14,
+      "title": "Multiplicara",
+      "company": "Plathanus",
+      "period": {
+        "start": "October 2022",
+        "end": "January 2023",
+        "additional": {
+          "label": "Support",
+          "start": "February 2023",
+          "end": "Ongoing"
+        }
+      },
+      "description": "Finalization, support, and maintenance of challenges and rewards app, with purchase flows, notifications, and video streaming.",
+      "responsibilities": [
+        "Delivered screens in React Native + Expo, integrating notifications and In-App Purchases.",
+        "Adjusted backend in Express + TypeORM, configuring jobs with Node Cron and Worker Threads for reminder sending."
+      ],
+      "technologies": [
+        "React Native",
+        "Expo",
+        "styled-components",
+        "Axios",
+        "Push Notification",
+        "In-App Purchase",
+        "Express",
+        "TypeORM",
+        "Node Cron",
+        "Worker Threads"
+      ],
+      "skills": [
+        "Gamification",
+        "Notification Automation",
+        "Continuous Maintenance"
+      ],
+      "image": "/placeholder.svg?height=450&width=800"
+    }
+  ]
+}
