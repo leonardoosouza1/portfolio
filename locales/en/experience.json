@@ -7,11 +7,37 @@
   },
   "items": [
     {
+      "id": 4,
+      "role": "Full Cycle Developer",
+      "company": "Reservatório de Dopamina",
+      "period": "Aug 2025 - Present",
+      "summary": "Full cycle developer working across frontend and backend to deliver scalable, high-impact solutions. I build performant interfaces with Next.js and Flutter and design robust backend architectures with NestJS, FastAPI and Spring Boot, with a strong background in Python for automation, ETL and workflow optimization — focused on clean architecture, system reliability and technical excellence across the stack.",
+      "responsibilities": [
+        "Full cycle development of web and mobile applications, from the frontend (Next.js, Flutter) to the backend (NestJS, FastAPI, Spring Boot).",
+        "Process automation, ETL pipelines and workflow optimization with Python.",
+        "Designing clean, reliable architectures, prioritizing maintainability and technical excellence across the stack.",
+        "Cross-functional collaboration and problem-solving with systems thinking."
+      ],
+      "technologies": [
+        "TypeScript",
+        "Python",
+        "Java",
+        "Next.js",
+        "Flutter",
+        "NestJS",
+        "FastAPI",
+        "Spring Boot",
+        "ETL",
+        "Clean Architecture",
+        "Docker"
+      ]
+    },
+    {
       "id": 1,
       "role": "Full Stack Developer",
-      "company": "Plathanus Software & Design",
-      "period": "2021 - Present",
-      "summary": "As a full stack developer, I help plan, develop and maintain web and mobile applications for various clients, working across all technology layers and ensuring high quality, performance and scalability.",
+      "company": "Plathanus Tech",
+      "period": "Sep 2021 - May 2025",
+      "summary": "As a full stack developer, I helped plan, develop and maintain web and mobile applications for various clients, working across all technology layers and ensuring high quality, performance and scalability.",
       "responsibilities": [
         "Design and implement intuitive interfaces with React, Next.js, React Native and Flutter, prioritizing user experience and accessibility.",
         "Develop robust APIs with NestJS, Express, Django, FastAPI and Java/Spring Boot, defining REST and GraphQL endpoints.",
